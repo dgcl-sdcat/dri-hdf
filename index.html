@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/DpartementsHautsdeFrance_1.js"></script>
+        <script src="data/RgionHautsdeFrance_2.js"></script>
+        <script src="data/LigneferroviaireProjetsmobilit_3.js"></script>
+        <script src="data/ProjetsRnovationthermique_4.js"></script>
+        <script src="data/ProjetsMobilitTransportscollectifs_5.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[49.029901430787596,0.6340036406351466],[51.206587786313925,5.032841458887451]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_FonddecarteOSM_0');
+        map.getPane('pane_FonddecarteOSM_0').style.zIndex = 400;
+        var layer_FonddecarteOSM_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_FonddecarteOSM_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_FonddecarteOSM_0;
+        map.addLayer(layer_FonddecarteOSM_0);
+        function pop_DpartementsHautsdeFrance_1(feature, layer) {
+        }
+
+        function style_DpartementsHautsdeFrance_1_0() {
+            return {
+                pane: 'pane_DpartementsHautsdeFrance_1',
+                opacity: 1,
+                color: 'rgba(51,153,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_DpartementsHautsdeFrance_1');
+        map.getPane('pane_DpartementsHautsdeFrance_1').style.zIndex = 401;
+        map.getPane('pane_DpartementsHautsdeFrance_1').style['mix-blend-mode'] = 'normal';
+        var layer_DpartementsHautsdeFrance_1 = new L.geoJson(json_DpartementsHautsdeFrance_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DpartementsHautsdeFrance_1',
+            layerName: 'layer_DpartementsHautsdeFrance_1',
+            pane: 'pane_DpartementsHautsdeFrance_1',
+            onEachFeature: pop_DpartementsHautsdeFrance_1,
+            style: style_DpartementsHautsdeFrance_1_0,
+        });
+        bounds_group.addLayer(layer_DpartementsHautsdeFrance_1);
+        map.addLayer(layer_DpartementsHautsdeFrance_1);
+        function pop_RgionHautsdeFrance_2(feature, layer) {
+        }
+
+        function style_RgionHautsdeFrance_2_0() {
+            return {
+                pane: 'pane_RgionHautsdeFrance_2',
+                opacity: 1,
+                color: 'rgba(145,92,159,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RgionHautsdeFrance_2');
+        map.getPane('pane_RgionHautsdeFrance_2').style.zIndex = 402;
+        map.getPane('pane_RgionHautsdeFrance_2').style['mix-blend-mode'] = 'normal';
+        var layer_RgionHautsdeFrance_2 = new L.geoJson(json_RgionHautsdeFrance_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RgionHautsdeFrance_2',
+            layerName: 'layer_RgionHautsdeFrance_2',
+            pane: 'pane_RgionHautsdeFrance_2',
+            onEachFeature: pop_RgionHautsdeFrance_2,
+            style: style_RgionHautsdeFrance_2_0,
+        });
+        bounds_group.addLayer(layer_RgionHautsdeFrance_2);
+        map.addLayer(layer_RgionHautsdeFrance_2);
+        function pop_LigneferroviaireProjetsmobilit_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Thème</th>\
+                        <td>' + (feature.properties['Thème'] !== null ? autolinker.link(feature.properties['Thème'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Projet</th>\
+                        <td>' + (feature.properties['Projet'] !== null ? autolinker.link(feature.properties['Projet'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Coût</th>\
+                        <td>' + (feature.properties['Coût'] !== null ? autolinker.link(feature.properties['Coût'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subvention</th>\
+                        <td>' + (feature.properties['Subvention'] !== null ? autolinker.link(feature.properties['Subvention'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LigneferroviaireProjetsmobilit_3_0() {
+            return {
+                pane: 'pane_LigneferroviaireProjetsmobilit_3',
+                opacity: 1,
+                color: 'rgba(255,166,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LigneferroviaireProjetsmobilit_3');
+        map.getPane('pane_LigneferroviaireProjetsmobilit_3').style.zIndex = 403;
+        map.getPane('pane_LigneferroviaireProjetsmobilit_3').style['mix-blend-mode'] = 'normal';
+        var layer_LigneferroviaireProjetsmobilit_3 = new L.geoJson(json_LigneferroviaireProjetsmobilit_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LigneferroviaireProjetsmobilit_3',
+            layerName: 'layer_LigneferroviaireProjetsmobilit_3',
+            pane: 'pane_LigneferroviaireProjetsmobilit_3',
+            onEachFeature: pop_LigneferroviaireProjetsmobilit_3,
+            style: style_LigneferroviaireProjetsmobilit_3_0,
+        });
+        bounds_group.addLayer(layer_LigneferroviaireProjetsmobilit_3);
+        map.addLayer(layer_LigneferroviaireProjetsmobilit_3);
+        function pop_ProjetsRnovationthermique_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Thème</th>\
+                        <td>' + (feature.properties['Thème'] !== null ? autolinker.link(feature.properties['Thème'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Projet</th>\
+                        <td>' + (feature.properties['Projet'] !== null ? autolinker.link(feature.properties['Projet'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Coût</th>\
+                        <td>' + (feature.properties['Coût'] !== null ? autolinker.link(feature.properties['Coût'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subvention</th>\
+                        <td>' + (feature.properties['Subvention'] !== null ? autolinker.link(feature.properties['Subvention'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ProjetsRnovationthermique_4_0() {
+            return {
+                pane: 'pane_ProjetsRnovationthermique_4',
+                shape: 'diamond',
+                radius: 5.999999999999998,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,166,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ProjetsRnovationthermique_4');
+        map.getPane('pane_ProjetsRnovationthermique_4').style.zIndex = 404;
+        map.getPane('pane_ProjetsRnovationthermique_4').style['mix-blend-mode'] = 'normal';
+        var layer_ProjetsRnovationthermique_4 = new L.geoJson(json_ProjetsRnovationthermique_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ProjetsRnovationthermique_4',
+            layerName: 'layer_ProjetsRnovationthermique_4',
+            pane: 'pane_ProjetsRnovationthermique_4',
+            onEachFeature: pop_ProjetsRnovationthermique_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_ProjetsRnovationthermique_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ProjetsRnovationthermique_4);
+        map.addLayer(layer_ProjetsRnovationthermique_4);
+        function pop_ProjetsMobilitTransportscollectifs_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Thème</th>\
+                        <td>' + (feature.properties['Thème'] !== null ? autolinker.link(feature.properties['Thème'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Projet</th>\
+                        <td>' + (feature.properties['Projet'] !== null ? autolinker.link(feature.properties['Projet'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Coût</th>\
+                        <td>' + (feature.properties['Coût'] !== null ? autolinker.link(feature.properties['Coût'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subvention</th>\
+                        <td>' + (feature.properties['Subvention'] !== null ? autolinker.link(feature.properties['Subvention'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ProjetsMobilitTransportscollectifs_5_0() {
+            return {
+                pane: 'pane_ProjetsMobilitTransportscollectifs_5',
+                shape: 'diamond',
+                radius: 5.999999999999998,
+                opacity: 1,
+                color: 'rgba(61,128,53,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,176,74,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ProjetsMobilitTransportscollectifs_5');
+        map.getPane('pane_ProjetsMobilitTransportscollectifs_5').style.zIndex = 405;
+        map.getPane('pane_ProjetsMobilitTransportscollectifs_5').style['mix-blend-mode'] = 'normal';
+        var layer_ProjetsMobilitTransportscollectifs_5 = new L.geoJson(json_ProjetsMobilitTransportscollectifs_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ProjetsMobilitTransportscollectifs_5',
+            layerName: 'layer_ProjetsMobilitTransportscollectifs_5',
+            pane: 'pane_ProjetsMobilitTransportscollectifs_5',
+            onEachFeature: pop_ProjetsMobilitTransportscollectifs_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_ProjetsMobilitTransportscollectifs_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ProjetsMobilitTransportscollectifs_5);
+        map.addLayer(layer_ProjetsMobilitTransportscollectifs_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/ProjetsMobilitTransportscollectifs_5.png" /> Projets Mobilité - Transports collectifs': layer_ProjetsMobilitTransportscollectifs_5,'<img src="legend/ProjetsRnovationthermique_4.png" /> Projets Rénovation thermique': layer_ProjetsRnovationthermique_4,'<img src="legend/LigneferroviaireProjetsmobilit_3.png" /> Ligne ferroviaire - Projets mobilité': layer_LigneferroviaireProjetsmobilit_3,'<img src="legend/RgionHautsdeFrance_2.png" /> Région Hauts-de-France': layer_RgionHautsdeFrance_2,'<img src="legend/DpartementsHautsdeFrance_1.png" /> Départements Hauts-de-France': layer_DpartementsHautsdeFrance_1,"Fond de carte OSM": layer_FonddecarteOSM_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
